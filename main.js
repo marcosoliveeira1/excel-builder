@@ -79,3 +79,12 @@ app.get('*', (_, res) => {
 
 // Start the server
 const server = app.listen(port, () => console.log(`app listening on port ${port}!`));
+
+function base64ToBuffer(base64String = "") {
+    return Buffer.from(`${base64String}`, 'base64');
+}
+
+function isBase64EncodedImage(data = "") {
+    const base64Regex = /^data:image\/(png|jpeg|gif);base64,/;
+    return base64Regex.test(`${data}`);
+}
