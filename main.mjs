@@ -1,10 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 const app = express();
-const port = PORT;
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -78,7 +77,4 @@ app.get('*', (_, res) => {
 });
 
 // Start the server
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
-});
-
+const server = app.listen(port, () => console.log(`app listening on port ${port}!`));
